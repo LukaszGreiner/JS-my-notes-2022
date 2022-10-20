@@ -1,0 +1,1 @@
+Here are my notes of JavaScript in 2022
