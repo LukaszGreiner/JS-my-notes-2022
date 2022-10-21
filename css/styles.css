@@ -49,7 +49,20 @@ body {
 
     margin-bottom: 20px;
 }
+a:link {
+    color: #c9d1d9;
+    text-decoration: none;
+}
+a:visited {
+    color: #c9d1d9;
 
+
+}
+
+.article:hover {
+    background-color: #c9d1d9;
+    color: #1c222a;
+}
 .footer {
     display: flex;
     align-items: center;
@@ -67,5 +80,13 @@ body {
     }
     .main {
         width: 800px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    
+    .main {
+        width: 95%;
+        padding: 10px;
     }
   }

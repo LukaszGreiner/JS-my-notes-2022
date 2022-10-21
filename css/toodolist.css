@@ -1,0 +1,154 @@
+
+:root {
+    --light: #c9d1d9;
+    --dark: #1c222a;
+    --danger: #a42a2a;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --gray: #523a3a80;
+    --glow: 0px 0px 4px #1c222a;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    height: auto;
+    width: auto;
+
+    padding: 2rem;
+
+    background-color: var(--light);
+}
+
+.main-container h1 {
+    text-align: center;
+    font-size: 60px;
+    color: var(--dark);
+}
+
+.main-container form {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+}
+
+.main-container .todo-input {
+    height: 50px;
+    width: 95%;
+    
+    margin-top: 50px;
+    padding-left: 10px;
+    
+    border: none;
+    
+    border-radius: 5px;
+    
+}
+
+.main-container .submit-btn {
+    height: 50px;
+    width: 125px;
+    margin-top: 20px;
+    background-color: var(--dark);
+    color: var(--light);
+   
+}
+.list {
+    margin-top: 20px;
+}
+
+.main-container .submit-btn:hover {
+    opacity: 90%;
+    cursor: pointer;
+}
+
+.todo-list h2 {
+    font-size: 2rem;
+    margin: 20px;
+}
+
+.todo-content input {
+    outline: none;
+    width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+.bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+}
+
+
+
+.todo-list .todo-item {
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    background-color: var(--light);
+
+
+}
+
+.todo-list .todo-item input {
+    background-color: var(--light);
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.todo-item .todo-content {
+    flex: 1 1 0%;
+}
+
+.todo-list .done input{
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+.todo-item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.todo-item .actions button {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    
+}
+
+.todo-item .actions .edit {
+    margin-right: 0.5rem;
+    background-color: var(--dark);
+    color: var(--light);
+}
+.todo-item .actions .delate {
+    background-color: var(--danger);
+    color: var(--light);
+}
+
+
+
+@media (max-width: 600px) {
+    .main-container form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

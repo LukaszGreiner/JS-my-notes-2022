@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/toodolist.css">
+</head>
+<body>
+  <div class="wrapper">
+    <main class="main">
+            <section class="main-container" id="main-container">
+                <h1>What's to do?</h1>
+              <form id="new-todo-form">
+                <input  class="todo-input"
+                    type="text"
+                    name="content"
+                    id="content"
+                    placeholder="np. wymienić żarówkę">  
+                  
+                 <input  class="submit-btn" type="submit" value="Add">
+              </form> 
+            </section>
+            <section class="todo-list">
+              <h2>Lista zadań</h2>
+              <div class="list" id="todo-list">
+
+                
+                <!-- <div class="todo-item done">
+                  <label>
+                    <input type="checkbox">
+                    <span class="bubble"></span>
+                  </label>
+                  <div class="todo-content">
+                    <input type="text" value="Przykładowe zadanie" readonly>
+                  </div>
+                  <div class="actions">
+                    <button class="edit">Edit</button>
+                    <button class="delate">Delate</button>
+                  </div>
+                </div> -->
+
+            </section>
+      </main>
+      <footer class="footer">
+         <p>&copy; Łukasz Greiner 2022</p>
+      </footer>
+  </div>
+    <script src="js/main.js"></script>
+    <script src="js/todolist.js"></script>
+</body>
+</html>
