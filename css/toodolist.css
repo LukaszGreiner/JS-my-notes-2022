@@ -1,13 +1,9 @@
-
 :root {
-    --light: #c9d1d9;
-    --dark: #1c222a;
     --danger: #a42a2a;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --gray: #523a3a80;
-    --glow: 0px 0px 4px #1c222a;
+    --glow: 0px 0px 4px #f53513;
 }
-
+.main {margin-top: 0;}
 .main-container {
     display: flex;
     flex-direction: column;
@@ -85,6 +81,7 @@ input[type="checkbox"] {
     height: 20px;
     border-radius: 50%;
     border: 2px solid var(--dark);
+    background-color: var(--dark);
 }
 
 
@@ -118,7 +115,6 @@ input[type="checkbox"] {
 
 .todo-list .done input{
     text-decoration: line-through;
-    color: var(--gray);
 }
 
 .todo-item .actions {
@@ -143,8 +139,6 @@ input[type="checkbox"] {
     background-color: var(--danger);
     color: var(--light);
 }
-
-
 
 @media (max-width: 600px) {
     .main-container form {
