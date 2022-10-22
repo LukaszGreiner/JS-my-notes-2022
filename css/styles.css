@@ -41,7 +41,7 @@ body {
 }
 
 .header {
-    border-bottom:  color: var(--light) 5px;
+    border-bottom: var(--light) 5px;
     padding-top: 50px;
 }
 
@@ -114,8 +114,8 @@ a:visited {
         width: 95%;
         padding: 10px;
         margin-top: 0.5rem;
-    }
+    };
     .go-back {
         display: none;
   }
-
+}
