@@ -1,0 +1,22 @@
+.main {
+    margin-top: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.go-back {
+  width: 100%;
+}
+
+.quote-container {
+    height: 100%;
+    display: flex;
+    margin-top: 30%;
+}
+.quote {
+    font-size: 5rem;
+    color: goldenrod;
+    text-align: center;
+}
