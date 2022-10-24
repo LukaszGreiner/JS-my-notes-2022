@@ -12,8 +12,8 @@ window.addEventListener('load', () => {
     const todo = {
       content: e.target.elements.content.value,
       done: false,
-      createdAt: new Date().getTime()
-    }
+      createdAt: new Date().getTime(),
+    };
 
     // Prevent pushing task without content
     if (e.target.elements.content.value) {
@@ -21,15 +21,14 @@ window.addEventListener('load', () => {
     }
 
     localStorage.setItem('todos', JSON.stringify(todos));
-    
+
     // Reset input value
     e.target.reset();
 
     DisplayTodos();
-  })
+  });
   DisplayTodos();
 });
-
 
 function DisplayTodos() {
   const todoList = document.querySelector('#todo-list');
@@ -47,7 +46,7 @@ function DisplayTodos() {
     const actions = document.createElement('div');
     const edit = document.createElement('button');
     const delateBtn = document.createElement('button');
-    
+
     input.type = 'checkbox';
     input.checked = todo.done;
     span.classList.add('bubble');
@@ -58,7 +57,7 @@ function DisplayTodos() {
     delateBtn.classList.add('delate');
 
     content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-    edit.innerHTML = "Edit";
+    edit.innerHTML = 'Edit';
     delateBtn.innerHTML = 'Delate';
 
     label.appendChild(input);
@@ -74,7 +73,7 @@ function DisplayTodos() {
     if (todo.done) {
       todoItem.classList.add('done');
     }
-    
+
     input.addEventListener('click', e => {
       todo.done = e.target.checked;
       localStorage.setItem('todos', JSON.stringify(todos));
@@ -89,22 +88,21 @@ function DisplayTodos() {
     });
 
     edit.addEventListener('click', e => {
-     const input = content.querySelector('input');
-     input.removeAttribute('readonly');
-     input.focus();
-     input.addEventListener("blur", e => {
-         input.setAttribute ('readonly', true);
-         todo.content = e.target.value;
-         localStorage.setItem('todos', JSON.stringify(todos));
-         DisplayTodos();
-        })
-    })
+      const input = content.querySelector('input');
+      input.removeAttribute('readonly');
+      input.focus();
+      input.addEventListener('blur', e => {
+        input.setAttribute('readonly', true);
+        todo.content = e.target.value;
+        localStorage.setItem('todos', JSON.stringify(todos));
+        DisplayTodos();
+      });
+    });
 
     delateBtn.addEventListener('click', e => {
       todos = todos.filter(t => t != todo);
       localStorage.setItem('todos', JSON.stringify(todos));
       DisplayTodos();
-    })
-    
-    })
+    });
+  });
 }
