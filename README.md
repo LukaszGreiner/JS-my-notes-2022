@@ -1,3 +1,30 @@
-Here are my notes of JavaScript in 2022
+Showcasing my JavaScript projects and saving notes✍
 
-* todolist was made based on this video: https://www.youtube.com/watch?v=6eFwtaZf6zc
+[Projects]:
+1. Quotes
+2. ...
+3. ...
+
+[Languages]:
+- HTML
+- CSS
+- JavaScript
+
+[Frameworks]:
+-
+-
+
+[API's]:
+- rapidAPI in quotes.js to fetch quotes
+
+[VSC Extensions]:
+- live server
+- prettier
+- CSS-in-JS
+- TODO Highlight
+
+[Other]:
+- git
+- custom snipets
+- theme: Atom one dark
+- blackbox
