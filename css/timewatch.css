@@ -1,0 +1,10 @@
+.time-container {
+    display: grid;
+    align-content: space-around;
+    height: 50%;
+}
+.current-time-span {
+    font-size: 5rem;
+    text-align: center;
+    
+}
