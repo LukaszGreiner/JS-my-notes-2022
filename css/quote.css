@@ -11,12 +11,20 @@
 }
 
 .quote-container {
-  height: 100%;
+  height: auto;
   display: flex;
-  margin-top: 30%;
+  margin-top: 20%;
 }
 .quote {
+  margin-bottom: 4rem;
   font-size: 2rem;
   color: var(--gold);
   text-align: center;
+}
+
+.quote-form .btn {
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  width: 100px;
+  cursor: pointer;
 }
