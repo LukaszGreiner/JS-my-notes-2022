@@ -75,10 +75,11 @@ body {
 
 .center-container {
   height: auto;
-  margin-top: 20%;
+  /* margin-top: 20%; */
 
   display: flex;
   justify-content: center;
+  flex-wrap: wrap ;
 
 }
 

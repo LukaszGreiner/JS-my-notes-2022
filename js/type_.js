@@ -1,13 +1,22 @@
 'use strict';
 console.log('type.js loaded');
 
-let userInput = document.getElementById('userInput');
+// DOM objects
+const userInput = document.getElementById('userInput');
+const currentWord = document.getElementById('currentWord');
+const nextWord = document.getElementById('nextWord');
+const currentLocation = document.getElementById('infoLocation');
+const otherInfo = document.getElementById('otherInfo');
 
+userInput.focus();
+
+// Global variables
 let gameActive = false;
 let stage = 0;
 let lvl = 0;
 
-const lvltest = ['s', 'd', 'f'];
+// Levels
+const lvltest = ['lvlTest','s', 'd', 'f'];
 const lvlAnia = [
   'Ania',
   'Bania',
@@ -72,11 +81,13 @@ userInput.addEventListener('keyup', function (e) {
     }
   }
   if (gameActive === true) {
-    playGame(lvlAnia);
+    playGame(lvltest);
   }
 });
 
 function playGame(lvl) {
+    setCurrentLocation(`${lvl[0]} ${stage}/${lvl.length}`)
+    setHints(lvl[stage], lvl[stage+1]);
   if (userInput.value.length > lvl[stage].length) setInput(lvl[stage]);
   // TODO why can't i put here setInput(lvl[stage])?
   userInput.placeholder = lvl[stage];
@@ -84,7 +95,9 @@ function playGame(lvl) {
     console.log('Good!');
     userInput.value = '';
     stage++;
+    console.log(lvl[stage]+"<--------------");
     userInput.placeholder = lvl[stage];
+    
     console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
   } else if (stage >= lvl.length) {
     // FIXME stop displaying undefined, go to next level
@@ -97,4 +110,13 @@ function playGame(lvl) {
 function setInput(placeHolder) {
   userInput.value = '';
   userInput.placeholder = placeHolder;
+}
+
+function setHints(current, next) {
+    currentWord.textContent = current;
+    nextWord.textContent = next;
+}
+
+function setCurrentLocation(location) {
+    currentLocation.textContent = location;
 }

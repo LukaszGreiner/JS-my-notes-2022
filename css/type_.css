@@ -23,16 +23,31 @@ body,
 }
 
 .text-input {
+  color: var(--yellow);
+
   width: 100%;
   height: auto;
 
-  font-size: 4rem;
+  font-size: 6rem;
   border: none;
   outline: transparent;
   background: transparent;
+  text-align: center;
   /* background-color: var(--yellow); */
 }
-input {
+
+.center-container span {
+  font-size: 2rem;
+  width: 100%;
   text-align: center;
-  color: var(--yellow);
+}
+
+.info-bar {
+  width: 100%;
+
+  margin-bottom: 15%;
+  padding: 0 5px;
+
+  text-align: right;
+  background-color: var(--blue);
 }
