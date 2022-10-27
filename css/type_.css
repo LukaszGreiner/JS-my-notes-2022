@@ -1,0 +1,38 @@
+:root {
+  --white: #fbf9ff;
+  --gray: #444a55;
+  --orange: #ff6d42;
+  --yellow: #f6ba2f;
+  --blue: #66baa8;
+}
+
+body,
+.main {
+  background-color: var(--gray);
+}
+
+.hidden {
+  display: none;
+}
+
+.msgDiv {
+  font-size: 4rem;
+  text-align: center;
+  border: #66baa8 dashed 0.5rem;
+  filter: blur(none);
+}
+
+.text-input {
+  width: 100%;
+  height: auto;
+
+  font-size: 4rem;
+  border: none;
+  outline: transparent;
+  background: transparent;
+  /* background-color: var(--yellow); */
+}
+input {
+  text-align: center;
+  color: var(--yellow);
+}

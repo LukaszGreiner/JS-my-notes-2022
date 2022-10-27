@@ -73,6 +73,15 @@ body {
   margin-bottom: 15px;
 }
 
+.center-container {
+  height: auto;
+  margin-top: 20%;
+
+  display: flex;
+  justify-content: center;
+
+}
+
 .article {
   border: #c9d1d9 2px;
   border-style: dashed;
