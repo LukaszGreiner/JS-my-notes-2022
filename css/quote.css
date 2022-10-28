@@ -11,10 +11,14 @@
 }
 
 .quote {
+  margin-top: 10rem;
   margin-bottom: 4rem;
   font-size: 2rem;
   color: var(--gold);
   text-align: center;
+}
+.quote-form {
+  margin-top: 8rem;
 }
 
 .quote-form .btn {

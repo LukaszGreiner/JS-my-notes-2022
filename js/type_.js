@@ -16,7 +16,7 @@ let stage = 0;
 let lvl = 0;
 
 // Levels
-const lvltest = ['lvlTest','s', 'd', 'f'];
+const lvltest = ['lvlTest', 's', 'd', 'f'];
 const lvlAnia = [
   'Ania',
   'Bania',
@@ -71,6 +71,46 @@ const lvlAnia = [
   'Zonia',
 ];
 
+// Functions
+
+function setInput(placeHolder) {
+  userInput.value = '';
+  userInput.placeholder = placeHolder;
+}
+
+function setHints(current, next) {
+  currentWord.textContent = current;
+  nextWord.textContent = next;
+}
+
+function setCurrentLocation(location, lvl, stage) {
+  const CurrenLocation = `${location} ${lvl[0]} ${stage}/${lvl.length}`;
+  currentLocation.textContent = CurrenLocation;
+}
+
+function playGame(lvl) {
+  setCurrentLocation('[W grze]', lvl, stage);
+  setHints(lvl[stage], lvl[stage + 1]);
+  
+  if (userInput.value.length > lvl[stage].length) setInput(lvl[stage]);
+  // TODO why can't i put here setInput(lvl[stage])?
+  if (userInput.value === lvl[stage]) {
+    console.log('Good!');
+    userInput.value = '';
+    stage++;
+    console.log(lvl[stage] + '<--------------');
+    userInput.placeholder = lvl[stage];
+
+    console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
+  } else if (stage >= lvl.length) {
+    // FIXME stop displaying undefined, go to next level
+    console.log(lvl.length);
+    console.log(stage);
+    console.log('Next lvl');
+  }
+}
+
+// Evvent Listener
 userInput.addEventListener('keyup', function (e) {
   // console.log(e.key);
   if (gameActive === false) {
@@ -81,42 +121,6 @@ userInput.addEventListener('keyup', function (e) {
     }
   }
   if (gameActive === true) {
-    playGame(lvltest);
+    playGame(lvlAnia);
   }
 });
-
-function playGame(lvl) {
-    setCurrentLocation(`${lvl[0]} ${stage}/${lvl.length}`)
-    setHints(lvl[stage], lvl[stage+1]);
-  if (userInput.value.length > lvl[stage].length) setInput(lvl[stage]);
-  // TODO why can't i put here setInput(lvl[stage])?
-  userInput.placeholder = lvl[stage];
-  if (userInput.value === lvl[stage]) {
-    console.log('Good!');
-    userInput.value = '';
-    stage++;
-    console.log(lvl[stage]+"<--------------");
-    userInput.placeholder = lvl[stage];
-    
-    console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
-  } else if (stage >= lvl.length) {
-    // FIXME stop displaying undefined, go to next level
-    console.log(lvl.length);
-    console.log(stage);
-    console.log('Next lvl');
-  }
-}
-
-function setInput(placeHolder) {
-  userInput.value = '';
-  userInput.placeholder = placeHolder;
-}
-
-function setHints(current, next) {
-    currentWord.textContent = current;
-    nextWord.textContent = next;
-}
-
-function setCurrentLocation(location) {
-    currentLocation.textContent = location;
-}

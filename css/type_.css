@@ -1,9 +1,9 @@
 :root {
   --white: #fbf9ff;
-  --gray: #444a55;
+  --gray: #3a3e41;
   --orange: #ff6d42;
   --yellow: #f6ba2f;
-  --blue: #66baa8;
+  --blue: #397f74;
 }
 
 body,
@@ -46,8 +46,9 @@ body,
   width: 100%;
 
   margin-bottom: 15%;
-  padding: 0 5px;
+  padding: 5px;
 
   text-align: right;
+  font-size: 1.5rem;
   background-color: var(--blue);
 }
