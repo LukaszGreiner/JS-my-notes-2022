@@ -12,6 +12,7 @@ userInput.focus();
 
 // Global variables
 let gameActive = false;
+let inputLength = 0;
 let stage = 0;
 let lvl = 0;
 
@@ -73,9 +74,14 @@ const lvlAnia = [
 
 // Functions
 
-function setInput(placeHolder) {
+function clearUserInput() {
   userInput.value = '';
+}
+
+function setPlaceholder(placeHolder) {
+  // userInput.value = '';
   userInput.placeholder = placeHolder;
+  console.log('Placeholder set to: ', placeHolder);
 }
 
 function setHints(current, next) {
@@ -91,15 +97,19 @@ function setCurrentLocation(location, lvl, stage) {
 function playGame(lvl) {
   setCurrentLocation('[W grze]', lvl, stage);
   setHints(lvl[stage], lvl[stage + 1]);
-  
-  if (userInput.value.length > lvl[stage].length) setInput(lvl[stage]);
-  // TODO why can't i put here setInput(lvl[stage])?
+  setPlaceholder(lvl[stage]);
+
+  if (inputLength > lvl[stage].length) clearUserInput();
   if (userInput.value === lvl[stage]) {
-    console.log('Good!');
-    userInput.value = '';
     stage++;
+    console.log('Good!');
+    clearUserInput();
+    setCurrentLocation('[W grze]', lvl, stage);
+    setHints(lvl[stage], lvl[stage + 1]);
+    setPlaceholder(lvl[stage]);
+    
+    
     console.log(lvl[stage] + '<--------------');
-    userInput.placeholder = lvl[stage];
 
     console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
   } else if (stage >= lvl.length) {
@@ -112,15 +122,19 @@ function playGame(lvl) {
 
 // Evvent Listener
 userInput.addEventListener('keyup', function (e) {
+  inputLength = userInput.value.length;
   // console.log(e.key);
   if (gameActive === false) {
-    if (userInput.value.length > 5) setInput('Type_');
+    if (inputLength > 5 || (inputLength === 5 && userInput.value !== 'Type_')) 
+      userInput.value = '';
     if (userInput.value === 'Type_') {
       gameActive = true;
       userInput.value = '';
+      userInput.placeHolder = '';
     }
   }
   if (gameActive === true) {
     playGame(lvlAnia);
+    // setPlaceholder("");
   }
 });
