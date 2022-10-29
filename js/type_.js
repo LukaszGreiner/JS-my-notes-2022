@@ -14,8 +14,9 @@ const ingameTimeInfo = document.getElementById('ingameTimeInfo');
 userInput.focus();
 
 //TODO ADD MUSIC / SFX
-// var audio = new Audio('https://www.youtube.com/watch?v=lMmLHchT4Ho&ab_channel=HALIDONMUSIC');
-// audio.play();
+const correctSFX = new Audio(
+  'http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3'
+);
 
 // Global variables
 let gameActive = false;
@@ -126,6 +127,7 @@ function playGame(lvl) {
   if (userInput.value === lvl[stage]) {
     stage++;
     console.log('Good!');
+    correctSFX.play();
     clearUserInput();
     setCurrentLocation('[W grze]', lvl, stage);
     setHints(lvl[stage], lvl[stage + 1]);
