@@ -7,8 +7,7 @@ const currentWord = document.getElementById('currentWord');
 const nextWord = document.getElementById('nextWord');
 const currentLocation = document.getElementById('locationInfo');
 const lvlInfo = document.getElementById('lvlInfo');
-const typeSpeedInfo = (document.getElementById('typeSpeedInfo').textContent =
-  'CPM: 100)');
+const typeSpeedInfo = document.getElementById('typeSpeedInfo');
 const ingameTimeInfo = document.getElementById('ingameTimeInfo');
 
 userInput.focus();
@@ -23,7 +22,10 @@ let gameActive = false;
 let inputLength = 0;
 let stage = 0;
 let lvl = 0;
-let currTime = 0;
+let gameStartTime = 0;
+let realStartTime = Date.now();
+let keyPressed = 0;
+
 // other
 currentLocation.textContent = '[MENU]';
 
@@ -85,11 +87,11 @@ const lvlAnia = [
 
 // Functions
 //TODO make one function for all infobar functions
-//TODO make in-game timer
 //TODO make type-speed count and display:
 //TODO save lvl score
 //TODO display options to either play same lvl again or go to next one
 //TODO make lvl menu
+//TODO if letter is wrong change its color to orange
 function clearUserInput() {
   userInput.value = '';
 }
@@ -100,7 +102,7 @@ function setPlaceholder(placeHolder) {
 }
 
 function setHints(current, next) {
-  currentWord.textContent = `⇛ ${current} ⇚`;
+  currentWord.textContent = `[ ${current} ]`;
   nextWord.textContent = next;
 }
 
@@ -109,19 +111,25 @@ function setCurrentLocation(location, lvl, stage) {
   currentLocation.textContent = newLocation;
 }
 
-function updateInfoBar(location, lvl, stage, time, cpm) {}
-
-//FIXME set timer while game active / display while game cative
-const time = setInterval(function () {
-  currTime++;
-  console.log(Math.round(currTime / 60, 2));
-  ingameTimeInfo.textContent = currTime;
-}, 1000);
+function setTypeSpeed() {
+  keyPressed++;
+  typeSpeedInfo.textContent = `[${keyPressed}]`;
+}
 
 function playGame(lvl) {
   setCurrentLocation('[W grze]', lvl, stage);
   setHints(lvl[stage], lvl[stage + 1]);
   setPlaceholder(lvl[stage]);
+  setTypeSpeed();
+
+  // Timer
+  //https://stackoverflow.com/questions/63513107/making-a-fictional-game-time-clock
+  let timerId = setInterval(function () {
+    let gameTime = gameStartTime + (Date.now() - realStartTime);
+    let sec = Math.floor(gameTime / 1000) % 60;
+    let min = Math.floor(gameTime / 60000) % 60;
+    ingameTimeInfo.textContent = `${min}:${sec}`.replace(/\b\d\b/g, '0$&');
+  }, 1000);
 
   if (inputLength > lvl[stage].length) clearUserInput();
   if (userInput.value === lvl[stage]) {
@@ -141,9 +149,10 @@ function playGame(lvl) {
   }
 }
 
-// Evvent Listener
+// Event Listener
 userInput.addEventListener('keyup', function (e) {
   inputLength = userInput.value.length;
+
   // console.log(e.key);
   if (gameActive === false) {
     if (inputLength > 5 || (inputLength === 5 && userInput.value !== 'Type_'))
