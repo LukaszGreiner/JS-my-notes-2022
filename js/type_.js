@@ -21,7 +21,7 @@ const correctSFX = new Audio(
 let gameActive = false;
 let inputLength = 0;
 let stage = 0;
-let lvl = 0;
+let lvl = 1;
 let gameStartTime = 0;
 let realStartTime = Date.now();
 let keyPressed = 0;
@@ -30,6 +30,18 @@ let keyPressed = 0;
 currentLocation.textContent = '[MENU]';
 
 // Levels
+const lvls = {
+  easy: {
+    1: ['a','b','c'],
+    2: ['d','e','f'],
+  },
+  medium: {
+    1: ['g',"h",'i'],
+    2: ['j','k','l'],
+  },
+}
+
+
 const lvltest = ['lvlTest', 's', 'd', 'f'];
 const lvlAnia = [
   'Ania',
@@ -102,7 +114,7 @@ function setPlaceholder(placeHolder) {
 }
 
 function setHints(current, next) {
-  currentWord.textContent = `[ ${current} ]`;
+  currentWord.textContent = `[${current}]`;
   nextWord.textContent = next;
 }
 
@@ -142,10 +154,12 @@ function playGame(lvl) {
     setPlaceholder(lvl[stage]);
 
     // console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
-  } else if (stage >= lvl.length) {
+  } 
+    if (stage >= lvl.length) {
     console.log(lvl.length);
     console.log(stage);
     console.log('Next lvl');
+    lvl++;
   }
 }
 
@@ -164,7 +178,7 @@ userInput.addEventListener('keyup', function (e) {
     }
   }
   if (gameActive === true) {
-    playGame(lvlAnia);
+    playGame(lvls.easy[lvl]);
     // setPlaceholder("");
   }
 });
