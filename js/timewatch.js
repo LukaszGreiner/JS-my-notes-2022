@@ -8,4 +8,5 @@ function displayTime() {
   const today = new Date();
   const currTime = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
   currTimeSpan.innerHTML = `🕐 ${currTime}`;
+  document.title = `🕐 ${currTime}`;
 }
