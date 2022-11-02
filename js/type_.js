@@ -17,36 +17,30 @@ const correctSFX = new Audio(
   'http://codeskulptor-demos.commondatastorage.googleapis.com/pang/pop.mp3'
 );
 
-// Levels
-const lvls = {
-  Samouczek: {
-    1: ['a', 'b', 'c'],
-    2: ['d', 'e', 'f'],
-    3: ['g', 'h', 'i'],
-    4: ['j', 'k', 'l'],
-  },
-  'Poziom A': {
-    1: ['1', '2', '3'],
-    2: ['4', '5', '6'],
-  },
-};
-
 // Global variables
 let gameActive = false;
 let inputLength = 0;
-
-let category = 'Samouczek';
-let currLvl = 1;
 let stage = 0;
-let currentLvlArray = lvls[category][currLvl];
-
+let lvl = 1;
 let gameStartTime = 0;
 let realStartTime = Date.now();
-// counters
 let keyPressed = 0;
 
 // other
 currentLocation.textContent = '[MENU]';
+
+// Levels
+const lvls = {
+  easy: {
+    1: ['a','b','c'],
+    2: ['d','e','f'],
+  },
+  medium: {
+    1: ['g',"h",'i'],
+    2: ['j','k','l'],
+  },
+}
+
 
 const lvltest = ['lvlTest', 's', 'd', 'f'];
 const lvlAnia = [
@@ -110,7 +104,6 @@ const lvlAnia = [
 //TODO display options to either play same lvl again or go to next one
 //TODO make lvl menu
 //TODO if letter is wrong change its color to orange
-
 function clearUserInput() {
   userInput.value = '';
 }
@@ -126,7 +119,7 @@ function setHints(current, next) {
 }
 
 function setCurrentLocation(location, lvl, stage) {
-  const newLocation = `${location} lvl:${lvl} Stage[${stage}/${currentLvlArray.length}]`;
+  const newLocation = `${location} ${lvl[0]} ${stage}/${lvl.length}`;
   currentLocation.textContent = newLocation;
 }
 
@@ -135,12 +128,10 @@ function setTypeSpeed() {
   typeSpeedInfo.textContent = `[${keyPressed}]`;
 }
 
-// Game
-function playGame(lvlArray, currentLvl) {
-  console.log(`=> ${lvlArray} <=`);
-  setCurrentLocation(`[${category}]`, currLvl, stage);
-  setHints(currentLvlArray[stage], currentLvlArray[stage + 1]);
-  setPlaceholder(currentLvlArray[stage]);
+function playGame(lvl) {
+  setCurrentLocation('[W grze]', lvl, stage);
+  setHints(lvl[stage], lvl[stage + 1]);
+  setPlaceholder(lvl[stage]);
   setTypeSpeed();
 
   // Timer
@@ -152,27 +143,23 @@ function playGame(lvlArray, currentLvl) {
     ingameTimeInfo.textContent = `${min}:${sec}`.replace(/\b\d\b/g, '0$&');
   }, 1000);
 
-  if (stage === currentLvlArray.length) {
-    console.log('Next lvl');
-    stage = 0;
-    currLvl++;
-    currentLvlArray = lvls[category][currLvl];
-    alert('New LVL!');
-  }
-  if (inputLength > currentLvlArray[stage].length) clearUserInput();
-  if (userInput.value === currentLvlArray[stage]) {
-    console.log(`Good! ${userInput.value} = ${currentLvlArray[stage]}`);
-
-    stage >= currentLvlArray.length ? currLvl++ : stage++;
-
-
+  if (inputLength > lvl[stage].length) clearUserInput();
+  if (userInput.value === lvl[stage]) {
+    stage++;
+    console.log('Good!');
     correctSFX.play();
     clearUserInput();
-    setCurrentLocation(`[${category}]`, currLvl, stage);
-    setHints(currentLvlArray[stage], currentLvlArray[stage + 1]);
-    setPlaceholder(currentLvlArray[stage]);
+    setCurrentLocation('[W grze]', lvl, stage);
+    setHints(lvl[stage], lvl[stage + 1]);
+    setPlaceholder(lvl[stage]);
 
-    console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
+    // console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
+  } 
+    if (stage >= lvl.length) {
+    console.log(lvl.length);
+    console.log(stage);
+    console.log('Next lvl');
+    lvl++;
   }
 }
 
@@ -191,8 +178,7 @@ userInput.addEventListener('keyup', function (e) {
     }
   }
   if (gameActive === true) {
-    const currentLvlArray = lvls[category][currLvl];
-    playGame(currentLvlArray, currLvl);
+    playGame(lvls.easy[lvl]);
     // setPlaceholder("");
   }
 });
