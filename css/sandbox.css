@@ -1,5 +1,22 @@
 .title {
-    font-size: 3rem;
-    text-align: center;
-    margin-top: 1rem;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.subtitle {
+  font-size: 2rem;
+}
+article textarea {
+  text-align: center;
+  pointer-events: none;
+}
+
+p {
+  padding-bottom: 0.5rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
 }

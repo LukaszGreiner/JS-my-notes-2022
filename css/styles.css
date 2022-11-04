@@ -10,6 +10,10 @@
   --gold: #daa520;
 }
 
+.pcenter {
+  text-align: center;
+}
+
 .go-back {
   margin-top: 2rem;
   /* padding: 10px; */
@@ -87,7 +91,6 @@ body {
   border: #c9d1d9 2px;
   border-style: dashed;
   padding: 20px;
-
   margin-bottom: 20px;
 }
 a:link,
@@ -96,7 +99,7 @@ a:visited {
   text-decoration: none;
 }
 
-.article:hover {
+.articleHover:hover {
   background-color: var(--light);
   color: var(--dark);
   font-weight: bold;
