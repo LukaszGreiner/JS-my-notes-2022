@@ -1,22 +1,38 @@
 .title {
-  font-size: 3rem;
+  font-size: 5rem;
   text-align: center;
-  margin-top: 1rem;
 }
 .subtitle {
   font-size: 2rem;
 }
-article textarea {
-  text-align: center;
-  pointer-events: none;
+
+
+.grid-2col-2row {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 0.2fr 2.5fr; 
+  gap: 10px 10px;
+
+}
+
+label,
+textarea {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+textarea {
+  padding: 10px;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
+label {
 }
 
 p {
   padding-bottom: 0.5rem;
+  text-align: center;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-around;
-    pointer-events: none;
-}

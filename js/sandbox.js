@@ -1,10 +1,13 @@
 'use:strict';
 
-document.article.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-// document.querySelector('textarea').value = '12adssdadas';
+const camelCaseInput = document.getElementById('camelCaseInput');
+const camelCaseOutput = document.getElementById('camelCaseOutput');
 
-// turns string into camelCase sentences
+camelCaseInput.addEventListener('keyup', function() {
+  console.log(camelCaseInput.value);
+  camelCaseOutput.value = camelCaseInput.value.camelCase();
+})
+
 String.prototype.camelCase = function () {
   if (this.length === 0) return '';
   const words = this.trim().split(' ');

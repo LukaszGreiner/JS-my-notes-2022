@@ -16,12 +16,13 @@
       <main class="main">
         <h1 class="title">SANDBOX</h1>
         <div class="go-back"><a href="index.html">Wróć</a></div>
-        <article class="article">
+        <article class="article grid-2col-3row">
           <h2 class="subtitle">CamelCase</h2>
-          <p>Zamień każde zdanie na CamelCase!</p>
-          <div class="flex">
-            <textarea name="input" id="" cols="30" rows="10">asd</textarea>
-            <textarea name="output" id="" cols="30" rows="10">ads</textarea>
+          <div class="grid-2col-2row">
+            <label for="textareaInput">Twój tekst:</label>
+            <label for="textareaOutput">Wynik:</label>
+            <textarea name="input" id="camelCaseInput" cols="30" rows="10" placeholder="Zwykły tekst"></textarea>
+            <textarea name="output" id="camelCaseOutput" cols="30" rows="10" placeholder="camelCase"></textarea>
           </div>
         </article>
       </main>
