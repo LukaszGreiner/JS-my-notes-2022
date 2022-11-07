@@ -36,3 +36,14 @@ p {
   text-align: center;
 }
 
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-container img {
+  width: auto;
+  height: 400px;
+  margin: 0.5rem 0;
+}
