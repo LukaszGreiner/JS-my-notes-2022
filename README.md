@@ -22,6 +22,7 @@ Showcasing my JavaScript projects and saving notes✍
 [VSC Extensions]:
 - live server
 - prettier
+- quokka.js
 - CSS-in-JS
 - TODO Highlight
 
