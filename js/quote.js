@@ -1,23 +1,25 @@
+
+
 //TODO Sharing quote on messenger
 //TODO update quote by swaping right
 //TODO Creating you own quotes database and chosing source of quotes
 
 // DOM elements
 const quoteSpan = document.getElementById('quote-span');
-const nextQuoteBtn = document.querySelector('#nextQuoteBtn');
-const saveQuoteBtn = document.querySelector('#saveQuoteBtn');
-const shareQuoteBtn = document.querySelector('#shareQuoteBtn');
+const nextQuoteBtn = document.getElementById('nextQuoteBtn');
+const saveQuoteBtn = document.getElementById('saveQuoteBtn');
+const shareQuoteBtn = document.getElementById('shareQuoteBtn');
 
 // Event listeners
-
 //shareQuoteBtn.addEventListener('click', shareQuote);
 //saveQuoteBtn.addEventListener('click', saveQuote);
 nextQuoteBtn.addEventListener('click', nextQuote);
+// nextQuoteBtn.addEventListener('click', nextQuote);
+
 // next quote upon hitting Enter key
-window.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter')
-    nextQuote();
-})
+window.addEventListener('keypress', e => {
+  if (e.key === 'Enter') nextQuote();
+});
 
 function nextQuote() {
   nextQuoteBtn.disabled = true;
@@ -38,7 +40,7 @@ const quotesArray = [
 ];
 const userQuotesArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// Zmienne
+// Global variables
 const randomQuote = randomInt(0, quotesArray.length - 1);
 const rapidApiQuote = '';
 
@@ -55,7 +57,6 @@ if (choice === 'rapidAPI') {
 } else {
   console.log('Nieznana wartość zmiennej choice');
 }
-
 
 // Funkcje
 function randomInt(size) {
@@ -82,7 +83,6 @@ function displayQuoteApi() {
     .catch(err => console.error(err));
 }
 
-
 function addQuote() {
   const quote = prompt('Dodaj swój cytat');
   userQuotesArray.push(quote);
@@ -91,7 +91,3 @@ function addQuote() {
 }
 
 //displayQuote(quotesArray, randomInt(quotesArray.length-1));
-
-
-
-
