@@ -15,11 +15,20 @@ body,
   display: none;
 }
 
-.msgDiv {
-  font-size: 4rem;
-  text-align: center;
-  border: #66baa8 dashed 0.5rem;
-  filter: blur(none);
+/*  */
+.hint-div {
+  display: inline-block;
+  width: 100%;
+  text-align: center ;
+  padding: 5px;
+  margin-bottom: 1rem;
+  background-color: var(--yellow);
+  color: var(--white);
+}
+
+.highlight {
+  font-weight: bolder;
+  color: var(--white);
 }
 
 .text-input {
@@ -29,25 +38,22 @@ body,
   width: 100%;
   height: auto;
 
+  margin: 20% 0;
+
   font-size: 6rem;
   border: none;
   outline: transparent;
-  background: transparent;
+  background: transparent ;
   text-align: center;
   /* background-color: var(--yellow); */
 }
 
-.center-container span {
-  margin-top: 1rem;
-  font-size: 2rem;
-  width: 100%;
-  text-align: center;
-}
+
 
 .info-bar {
   width: 100%;
 
-  margin-bottom: 15%;
+  /* margin-bottom: 10%; */
   padding: 5px;
   padding-left: 1rem;
 

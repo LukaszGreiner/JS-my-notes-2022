@@ -1,5 +1,3 @@
-
-
 //TODO Sharing quote on messenger
 //TODO update quote by swaping right
 //TODO Creating you own quotes database and chosing source of quotes
@@ -16,10 +14,10 @@ const shareQuoteBtn = document.getElementById('shareQuoteBtn');
 nextQuoteBtn.addEventListener('click', nextQuote);
 // nextQuoteBtn.addEventListener('click', nextQuote);
 
-// next quote upon hitting Enter key
-window.addEventListener('keypress', e => {
+document.onkeydown = e => {
+  // The Enter/Return key
   if (e.key === 'Enter') nextQuote();
-});
+};
 
 function nextQuote() {
   nextQuoteBtn.disabled = true;

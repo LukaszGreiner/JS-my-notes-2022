@@ -32,15 +32,14 @@ currentLocation.textContent = '[MENU]';
 // Levels
 const lvls = {
   easy: {
-    1: ['a','b','c'],
-    2: ['d','e','f'],
+    1: ['a', 'b', 'c'],
+    2: ['d', 'e', 'f'],
   },
   medium: {
-    1: ['g',"h",'i'],
-    2: ['j','k','l'],
+    1: ['g', 'h', 'i'],
+    2: ['j', 'k', 'l'],
   },
-}
-
+};
 
 const lvltest = ['lvlTest', 's', 'd', 'f'];
 const lvlAnia = [
@@ -154,8 +153,8 @@ function playGame(lvl) {
     setPlaceholder(lvl[stage]);
 
     // console.log(`Lvl: ${lvl[0]}\nStage: ${stage}/${lvl.length}`);
-  } 
-    if (stage >= lvl.length) {
+  }
+  if (stage >= lvl.length) {
     console.log(lvl.length);
     console.log(stage);
     console.log('Next lvl');
@@ -178,7 +177,7 @@ userInput.addEventListener('keyup', function (e) {
     }
   }
   if (gameActive === true) {
-    playGame(lvls.easy[lvl]);
+    playGame(lvlAnia);
     // setPlaceholder("");
   }
 });

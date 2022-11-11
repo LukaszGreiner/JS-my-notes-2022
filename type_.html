@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
-      name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=1"
+      name="viewport"
     />
     <title>Type_</title>
     <link rel="stylesheet" href="/css/styles.css" />
@@ -14,18 +14,27 @@
   <body>
     <div class="wrapper">
       <main class="main">
-        <div class="go-back"><a href="index.html">Wróć</a></div>
+        <nav>
+          <div class="go-back"><a href="index.html">Wróć</a></div>
+        </nav>
         <div class="info-bar">
-          <span id="locationInfo"></span>
+          <span id="locationInfo">[Menu]</span>
           <span id="lvlInfo"></span>
           <span id="typeSpeedInfo"></span>
           <span id="ingameTimeInfo"></span>
         </div>
         <div class="center-container">
-          <input id="userInput" class="text-input" type="text" placeholder="Type_" />
-          <span class="current-word"  id="currentWord">&xrArr; Current &xlArr;</span>
-          <span class="next-word" id="nextWord">Next</span>
-          <div class="msgDiv hidden" id="msgDiv"></div>
+          <input
+            id="userInput"
+            class="text-input"
+            type="text"
+            placeholder="Type_"
+          />
+          <span class="current-word" id="currentWord"></span>
+          <span class="next-word" id="nextWord"></span>
+          <div class="hint-div" id="hintDiv">
+            <p>Aby zacząć grę wpisz <span class="highlight">Type_</span></p>
+          </div>
         </div>
         <!-- <form class="ty-form" id="quote-form">
        [W grze] Ania 1/51
@@ -35,6 +44,6 @@
         <p>&copy; Łukasz Greiner 2022</p>
       </footer>
     </div>
-    <script src="js/type_.js"></script>
+    <script src="js/type_2.js"></script>
   </body>
 </html>
