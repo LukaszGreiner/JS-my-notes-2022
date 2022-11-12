@@ -1,6 +1,9 @@
 'use strict';
 console.log('type.js loaded');
 
+//Import lvls array
+import { lvls } from './lvls.js';
+
 // DOM objects
 const currentWord = document.getElementById('currentWord');
 const nextWord = document.getElementById('nextWord');
@@ -11,74 +14,77 @@ const typeSpeedInfo = document.getElementById('typeSpeedInfo');
 const ingameTimeInfo = document.getElementById('ingameTimeInfo');
 const userInput = document.getElementById('userInput');
 
-// game lvls
-const lvls = [
-  ['Tutorial', 'witaj', 'w', 'poziomie', 'testowym', '/end'],
-  ['Poziom 2', '/end'],
-  ['Poziom 3', '/end'],
-  ['Poziom 4', '/end'],
-];
+//test lvls
+/* const lvls = [
+    ['Tutorial', 'witaj', 'w', 'poziomie', 'testowym', '/end'],
+    ['Poziom 1', '/end'],
+    ['Poziom 2', '/end'],
+    ['Poziom 3', '/end'],
+  ]; */
 
 //TODO save user progress
 const playerInfo = {
-  currLvl: lvls[0],
-  // completeLvl: [],
-  // timeSpend: 0,
-  // charTyped: 0,
+  lvl: 0,
 };
+
+//onload to prevent getting null
+window.onload = () => userInput.addEventListener('keyup', startGame);
 
 // Starting game upon typing "TYPE_"
 const startGame = function () {
   // no need to click on input
   userInput.focus();
   if (userInput.value === 'Type_') initGame();
-  if (userInput.value.length > 'Type_'.length) clearInput();
+  if (userInput.value.length >= 'Type_'.length) clearInput();
 };
+
 // starting game function
 const initGame = () => {
+  console.log('Init game()');
   // remove starting game condition listener
   userInput.removeEventListener('keyup', startGame);
 
   clearInput();
-  updateHint('Dobrze! Gra rozpoczęta!');
-  updateLocation('[W grze]');
-  console.log('Game started');
+  updateHint('Game started!');
+  updateLocation('[In game]');
 
   gameCycle(playerInfo);
 };
 
-// Event listners
-//onload to prevent getting error in quokka.js
-window.onload = () => userInput.addEventListener('keyup', startGame);
-
-// Functions
-
 // === GAMEPLAY FUNCTION ===
-const gameCycle = function (playerArr) {
+const gameCycle = function (playerObj) {
   let stageIndex = 0;
+  // set current lvl based on currLvl value of player ocject
+  let lvlIndex = playerObj.lvl;
+  let currLvlArr = lvls[lvlIndex]; //lvls[0]
 
   userInput.addEventListener('keyup', function (e) {
-    const currLvl = playerArr['currLvl']; //lvls[0]
-    let currStageWord = currLvl[stageIndex];
+    let currStageWord = currLvlArr[stageIndex];
 
     //display current word
     updatePlaceholder(currStageWord);
-    console.log('#', stageIndex > currLvl.length);
 
-    console.log(currStageWord, userInput.value, stageIndex, currLvl.length);
+    // check if input is same as current word
     if (userInput.value == currStageWord) {
-      // next lvl if current word is last
-      if (stageIndex + 1 === currLvl.length) {
+      // next level if current word is last item in array
+      if (stageIndex + 1 === currLvlArr.length) {
         alert('Next lvl');
+        lvlIndex++;
         stageIndex = -1;
+        // update lvl array
+        lvls[lvlIndex]
+          ? (currLvlArr = lvls[lvlIndex])
+          : alert('YOU WON! No more levels left 😎');
+        console.log('lvlIndex: ', lvlIndex, 'CurrentArr: ', currLvlArr);
       }
 
-      //następne słowo
+      //next word
       stageIndex++;
       clearInput();
-      updatePlaceholder(currLvl[stageIndex]);
+      updatePlaceholder(currLvlArr[stageIndex]);
     }
-    // console.log(currStageWord, stageIndex);
+    // clear input if player typed different word
+    if (userInput.value.length >= currStageWord.length) clearInput();
   });
 };
 
