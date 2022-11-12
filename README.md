@@ -1,8 +1,8 @@
 Showcasing my JavaScript projects and saving notes✍
 
 [Projects]:
-1. Quotes
-2. Type_
+1. TYPE_ <--- CURRENTLY WORKING ON
+2. Quotes
 3. Timewatch
 4. ...
 5. ...
