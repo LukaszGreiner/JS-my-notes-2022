@@ -3,6 +3,7 @@ console.log('type.js loaded');
 
 //Import lvls array
 import { lvls } from './lvls.js';
+import * as name from './modal.js';
 
 // DOM objects
 const currentWord = document.getElementById('currentWord');
@@ -16,7 +17,7 @@ const userInput = document.getElementById('userInput');
 
 //test lvls
 /* const lvls = [
-    ['Tutorial', 'witaj', 'w', 'poziomie', 'testowym', '/end'],
+    ['Tutorial', 'witaj', 'w', 'poziomie', 'testowym', '/finish'],
     ['Poziom 1', '/end'],
     ['Poziom 2', '/end'],
     ['Poziom 3', '/end'],
@@ -30,10 +31,14 @@ const playerInfo = {
 //onload to prevent getting null
 window.onload = () => userInput.addEventListener('keyup', startGame);
 
+//focus cursor
+userInput.focus();
+
 // Starting game upon typing "TYPE_"
 const startGame = function () {
   // no need to click on input
   userInput.focus();
+
   if (userInput.value === 'Type_') initGame();
   if (userInput.value.length >= 'Type_'.length) clearInput();
 };
@@ -63,6 +68,7 @@ const gameCycle = function (playerObj) {
 
     //display current word
     updatePlaceholder(currStageWord);
+    updateCurrWord(currStageWord);
 
     // check if input is same as current word
     if (userInput.value == currStageWord) {
@@ -101,4 +107,8 @@ const updatePlaceholder = str => (userInput.placeholder = str);
 // updates location in green info bar
 const updateLocation = function (str) {
   currentLocation.textContent = str;
+};
+
+const updateCurrWord = function (str) {
+  currentWord.textContent = str;
 };

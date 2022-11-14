@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <main class="main">
+      <main class="main main-fixed">
         <nav>
           <div class="go-back"><a href="index.html">Wróć</a></div>
         </nav>
@@ -24,22 +24,28 @@
           <span id="ingameTimeInfo"></span>
         </div>
         <div class="center-container">
+          <div class="input-container">
           <input
             id="userInput"
             class="text-input"
             type="text"
             placeholder="Type_"
           />
-          <p class="current-word" id="currentWord"></span>
+          <p class="current-word" id="currentWord">current word</span>
+          </div>
           <span class="next-word" id="nextWord"></span>
           <div class="hint-div" id="hintDiv">
             <p>Aby zacząć grę wpisz <span class="highlight">Type_</span></p>
           </div>
         </div>
-        <!-- <form class="ty-form" id="quote-form">
-       [W grze] Ania 1/51
-        </form> -->
       </main>
+      <div class="modal hidden">
+        <button class="btn--close-modal">&times;</button>
+        <h2 class="modal-h2"></h2>
+        <p class="modal-p"></p>
+        <p class="modal-p-sec">press <strong>Enter</strong> to continue...</p>
+      </div>
+      <div id="overlay" class="overlay hidden"></div>
       <footer class="footer">
         <p>&copy; Łukasz Greiner 2022</p>
       </footer>
