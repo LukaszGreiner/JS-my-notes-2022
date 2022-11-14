@@ -14,8 +14,11 @@
   <body>
     <div class="wrapper">
       <main class="main">
+        <!-- NAV -->
         <h1 class="title">SANDBOX</h1>
         <div class="go-back"><a href="index.html">Wróć</a></div>
+
+        <!-- CAMEL CASE -->
         <article class="article grid-2col-3row">
           <h2 class="subtitle">CamelCase</h2>
           <div class="grid-2col-2row">
@@ -37,13 +40,54 @@
             ></textarea>
           </div>
         </article>
+
+        <!-- SPLIT WORD -->
+        <article class="article grid-2col-3row">
+          <h2 class="subtitle">split word</h2>
+          <div class="grid-2col-2row">
+            <label for="textareaInput">Twój tekst:</label>
+            <label for="textareaOutput">Wynik:</label>
+            <textarea
+              name="input"
+              id="arrayWordInput"
+              cols="30"
+              rows="10"
+              placeholder="Zwykły tekst"
+            ></textarea>
+            <textarea
+              name="output"
+              id="arrayWordOutput"
+              cols="30"
+              rows="10"
+              placeholder="[Zwykły, tekst]"
+            ></textarea>
+          </div>
+        </article>
+
+        <article class="article grid-2col-3row">
+          <button class="btn--open-modal">OPEN MODAL</button>
+          <div class="modal hidden">
+            <button class="btn--close-modal">&times;</button>
+            <h2 class="modal-h2">Modal Title</h2>
+            <p class="modal-p">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+              molestiae velit vel placeat unde accusantium id reiciendis
+              asperiores, sequi numquam?
+            </p>
+          </div>
+          <div class="overlay hidden"></div>
+        </article>
+        <!-- IMGS -->
         <article class="article">
           <div class="img-container">
+            <img src="img/array_method_progress.jpg" alt="" />
             <img src="img/Snap1.png" alt="" />
             <img src="img/Snap2.png" alt="" />
           </div>
         </article>
       </main>
+
+      <!-- FOOTER -->
       <footer class="footer">
         <p>&copy; Łukasz Greiner 2022</p>
       </footer>
