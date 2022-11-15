@@ -1,13 +1,19 @@
+:root {
+  --light: #c9d1d9;
+  --dark: #1c222a;
+  --gold: #daa520;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --light: #c9d1d9;
-  --dark: #1c222a;
-  --gold: #daa520;
+a:link,
+a:visited {
+  color: var(--light);
+  text-decoration: none;
 }
 
 .pcenter {
@@ -16,7 +22,6 @@
 
 .go-back {
   margin-top: 2rem;
-  border-style: dashed;
   background-color: var(--light);
 }
 .go-back a {
@@ -24,12 +29,12 @@
   display: inline-block;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--dark) !important;
+  color: var(--dark);
 }
 
 .go-back:hover a {
   background-color: var(--dark);
-  color: var(--light) !important;
+  color: var(--light);
   transition: ease-in 0.25s;
 }
 
@@ -90,11 +95,6 @@ body {
   border-style: dashed;
   padding: 20px;
   margin-bottom: 20px;
-}
-a:link,
-a:visited {
-  color: var(--light);
-  text-decoration: none;
 }
 
 .articleHover:hover {

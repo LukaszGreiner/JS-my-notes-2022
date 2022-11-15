@@ -26,7 +26,7 @@ body,
 }
 footer {
   position: fixed;
-  top: 87%;
+  top: 100vh;
 }
 
 .info-bar {
@@ -103,10 +103,15 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 35vw;
-  background-color: #f3f3f3;
-  padding: 5rem 6rem;
+  /* max-width: 35vw; */
+  width: 700px;
+  height: 400px;
+
+  display: grid;
+  place-items: center;
+
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 1000;
   transition: all 0.5s;
 }
@@ -123,7 +128,7 @@ footer {
 }
 
 .modal-h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--orange);
 }
 

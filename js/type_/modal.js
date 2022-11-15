@@ -14,18 +14,15 @@ export const openModal = function (
   modalText.innerHTML = msg;
 };
 
+export const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' && !modal.classList.contains('hidden')) {
     closeModal();
     console.log('close');
   }
 });
-
-export const closeModal = function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-};
-
 closeModalBtn.addEventListener('click', closeModal);
-
-openModal();
