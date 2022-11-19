@@ -1,7 +1,5 @@
 'use strict';
-console.log('type.js loaded');
 
-//Import levels array
 import { levels } from './levels.js';
 import { closeModal, openModal } from './modal.js';
 
@@ -43,12 +41,12 @@ const initGame = () => {
 
   startTimer();
   clearInput();
-  updateHint('Game started!');
-  updateLocation('[In game]');
+  setHint('Game started!');
+  setLocation('[In game]');
   gameCycle(player);
   keypresses = 0;
   setLvlLocation(levels[player.lvl][0]);
-  updateCurrWord(levels[player.lvl][0]);
+  setCurrWord(levels[player.lvl][0]);
 };
 
 const gameCycle = function (playerObj) {
@@ -59,7 +57,7 @@ const gameCycle = function (playerObj) {
 
   userInput.addEventListener('keyup', function (e) {
     let currStageWord = currLvlArr[stageIndex];
-    updatePlaceholder(currStageWord);
+    setPlaceholder(currStageWord);
 
     // input validation
     if (userInput.value == currStageWord) {
@@ -80,8 +78,8 @@ const gameCycle = function (playerObj) {
       //next word
       stageIndex++;
       clearInput();
-      updatePlaceholder(currLvlArr[stageIndex]);
-      updateCurrWord(currLvlArr[stageIndex]);
+      setPlaceholder(currLvlArr[stageIndex]);
+      setCurrWord(currLvlArr[stageIndex]);
     }
     if (userInput.value.length >= currStageWord.length) clearInput();
   });
@@ -89,13 +87,13 @@ const gameCycle = function (playerObj) {
 
 const clearInput = () => (userInput.value = '');
 
-const updateHint = str => (hintDiv.textContent = str);
+const setHint = str => (hintDiv.textContent = str);
 
-const updatePlaceholder = str => (userInput.placeholder = str);
+const setPlaceholder = str => (userInput.placeholder = str);
 
-const updateLocation = str => (currentLocation.textContent = str);
+const setLocation = str => (currentLocation.textContent = str);
 
-const updateCurrWord = str => (currentWord.textContent = str);
+const setCurrWord = str => (currentWord.textContent = str);
 
 // INFOBAR COMPONENTS
 
